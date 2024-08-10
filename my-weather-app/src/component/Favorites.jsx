@@ -11,7 +11,7 @@ export const Favorites = ({ favorites, addFavorite, removeFavorite }) => {
         if (favorites.length > 0) {
             fetchFavoriteDetails();
         } else {
-            setFavoriteDetails([]); // Reset favorite details if no favorites
+            setFavoriteDetails([]); 
         }
     }, [favorites]);
 
@@ -20,8 +20,10 @@ export const Favorites = ({ favorites, addFavorite, removeFavorite }) => {
     };
 
     const handleAddFav = () => {
-        addFavorite(newFav);
-        setNewFav('');
+        if (newFav.trim()) {
+            addFavorite(newFav);
+            setNewFav('');
+        }
     };
 
     const fetchFavoriteDetails = async () => {
@@ -44,8 +46,8 @@ export const Favorites = ({ favorites, addFavorite, removeFavorite }) => {
     const handleRemoveFavorite = async (id) => {
         try {
             await axios.delete(`http://localhost:8080/favorites/${id}`);
-            setFavoriteDetails(favoriteDetails.filter(fav => fav.id !== id)); 
-            removeFavorite(id); 
+            setFavoriteDetails(favoriteDetails.filter(fav => fav.id !== id));
+            removeFavorite(id);
         } catch (error) {
             console.error("Error removing favorite", error);
         }
@@ -53,32 +55,35 @@ export const Favorites = ({ favorites, addFavorite, removeFavorite }) => {
 
     return (
         <div className="favorites">
-            <input type="text" value={newFav} onChange={handleChange} placeholder='Add favorite city' />
+            <input
+                type="text"
+                value={newFav}
+                onChange={handleChange}
+                placeholder='Add favorite city'
+            />
             <button onClick={handleAddFav}>Add</button>
             <div>
-                {
-                    loading ? (
-                        <p>Loading...</p>
-                    ) : (
-                        favoriteDetails.length > 0 ? (
-                            favoriteDetails.map((el) => (
-                                <div key={el.id} className="favorite-item">
-                                    <div className="favorite-info">
-                                        <img src={`http://openweathermap.org/img/wn/${el.weather.icon}@2x.png`} alt="weather icon" />
-                                        <div>
-                                            <p>{el.city}</p>
-                                            <p>{el.weather.description}</p>
-                                        </div>
-                                        <h2 className='fav-degree'>{Math.round(el.main.temp - 273.15)}°</h2>
+                {loading ? (
+                    <p>Loading...</p>
+                ) : (
+                    favoriteDetails.length > 0 ? (
+                        favoriteDetails.map((el) => (
+                            <div key={el.id} className="favorite-item">
+                                <div className="favorite-info">
+                                    <img src={`http://openweathermap.org/img/wn/${el.weather.icon}@2x.png`} alt="weather icon" />
+                                    <div>
+                                        <p>{el.city}</p>
+                                        <p>{el.weather.description}</p>
                                     </div>
-                                    <button onClick={() => handleRemoveFavorite(el.id)}>Remove</button>
+                                    <h2 className='fav-degree'>{Math.round(el.main.temp - 273.15)}°C</h2>
                                 </div>
-                            ))
-                        ) : (
-                            <p>No favorites added</p>
-                        )
+                                <button onClick={() => handleRemoveFavorite(el.id)}>Remove</button>
+                            </div>
+                        ))
+                    ) : (
+                        <p>No favorites added yet</p>
                     )
-                }
+                )}
             </div>
         </div>
     );
