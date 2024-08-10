@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=M+PLUS+Rounded+1c&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Overpass:ital,wght@0,100..900;1,100..900&family=PT+Mono&family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+
+body {
+  background-color: #080d14;
+  color: white;
+  font-family: "Josefin Sans", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.left-side-conatiner {
+  position: relative;
+  top: 0;
+}
+
+.App {
+  margin: 0 auto;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 80px;
+  background-color: #212C3C;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+  transition: all 0.3s ease;
+}
+
+.sidebar p {
+  margin: 20px 0;
+  cursor: pointer;
+  color: #ffffff;
+}
+
+.sidebar p:hover {
+  color: #00aaff;
+}
+
+.sidebar p i {
+  font-size: 24px;
+}
+
+.sidebar .active {
+  color: #00aaff;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-left-color: #3c47e9;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.content {
+  margin-left: 90px; /* Adjust for sidebar width */
+  padding: 10px;
+  width: calc(100% - 90px);
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 60px;
+  }
+
+  .sidebar p {
+    margin: 15px 0;
+  }
+
+  .sidebar p i {
+    font-size: 20px;
+  }
+
+  .content {
+    margin-left: 70px; /* Adjust for smaller sidebar width */
+    width: calc(100% - 70px);
+  }
+}
+
+@media (max-width: 480px) {
+  .sidebar {
+    width: 50px;
+  }
+
+  .sidebar p {
+    margin: 10px 0;
+  }
+
+  .sidebar p i {
+    font-size: 18px;
+  }
+
+  .content {
+    margin-left: 60px; /* Adjust for smallest sidebar width */
+    width: calc(100% - 60px);
+  }
+}

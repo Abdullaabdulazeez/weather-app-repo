@@ -1,0 +1,70 @@
+/* Add this to your existing Favorites.css */
+
+.favorites {
+    padding: 20px;
+    color: #d3d3d3;
+    background-color: #212C3C;
+    border-radius: 10px;
+    width: 80%;
+    margin: 20px auto;
+  }
+  
+  .favorites input {
+    width: calc(100% - 90px);
+    padding: 10px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  .favorites button {
+    padding: 10px;
+    background-color: #00aaff;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  .favorites button:hover {
+    background-color: #007acc;
+  }
+  
+  .favorite-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1a1a1a;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+  }
+  
+  .favorite-item p {
+    margin: 0;
+  }
+  
+  .favorite-item button {
+    background-color: transparent;
+    border: none;
+    color: #ff6666;
+    cursor: pointer;
+  }
+  
+  .favorite-item button:hover {
+    color: #ff3333;
+  }
+  
+  .favorite-info {
+    display: flex;
+    align-items: center;
+  }
+  
+  .favorite-info img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+  }
+.fav-degree{
+    margin-left: 30px;
+}  
