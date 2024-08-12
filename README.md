@@ -7,6 +7,7 @@ The Weather Dashboard is a single-page React application that provides users wit
 
 ## Deployed Link:
 Frontent : https://66b741f86801ee1cf944e224--prismatic-lokum-fd9435.netlify.app/
+Backend: https://weather-app-repo-9.onrender.com/favorites
 
 ## Demo video link
 https://drive.google.com/file/d/1c6c2jLG_fHdJ0tXArPyuu9kh_PpMCcDz/view?usp=sharing
