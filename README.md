@@ -6,7 +6,7 @@ The Weather Dashboard is a single-page React application that provides users wit
  The application uses the OpenWeatherMap API to fetch weather data and a JSON server to manage a list of favorite cities.
 
 ## Deployed Link:
-Frontent : https://66b741f86801ee1cf944e224--prismatic-lokum-fd9435.netlify.app/
+Frontent : https://66b741f86801ee1cf944e224-prismatic-l.netlify.app/
 Backend: https://weather-app-repo-9.onrender.com/favorites
 
 ## Demo video link
